@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Prestamo</title>
+    <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+    <header>
+
+        <div class="header__img">
+            <img src="imagen/simulador.png" alt="">
+            <div id="confir__exitosa" class="texto_operacion"> </div>
+        </div>
+
+    </header>
+
+    <section>
+
+        <div class="Container__Simulador" id="container__simulador">
+
+            <!-- <form action=""> -->
+                <fieldset class="Planilla">
+                            
+                    <legend class="">Formulario de Solicitud </legend>
+    
+                    <label class="" for="Entidad">Entidad Bancaria</label>
+                    <input id ="banco" class="input" type="text" name="Nombre" placeholder="Entidad Perteneciente">
+                    
+                    <label  class=""for="Monto">Ingrese Monto</label>
+                    <input id ="monto" class=" input" type="number" name="Monto" placeholder="Minimo $ 10.000">
+                    
+                    <label  class=""for="Plazo">Plazo</label>
+                    <input id ="plazo" class="input" type="number" name="Plazo" placeholder="12 - 24 - 48 - 72">
+    
+                    <button id="boton" class="boton"> VALIDAR</button>
+                    <button id="borrar" class="boton"> RESET</button>
+                    <button class="boton__confirmar"  id="confirmar">CONFIRMAR</button>
+             
+                     <!-- <input id="Validar" class=""type="submit" value="Validar"> -->
+                     <!-- <input type="reset" value="Limpiar"> -->
+             
+    
+                </fieldset>
+            <!-- </form> -->
+    
+        </div>
+    
+        <div class="container_info" id="container">  </div>
+
+        <div id="container_dos" class="container_dos"> </div>
+
+        <button id="Consultador" class="Consultador" hidden> Ultima Consulta </button>
+ 
+
+
+    </section>
+
+    <script src="simulador.js"></script>
+</body>
+</html>
