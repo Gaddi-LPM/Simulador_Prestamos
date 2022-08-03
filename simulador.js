@@ -7,7 +7,6 @@ function carga_datos(){
     let plazo = document.getElementById("plazo").value;
     let contenedor = document.getElementById("container");
 
-
     let information = {"Entidad": banco , "Cantidad": monto , "Cuotas": plazo };
 
     Consulta_info.push(information);
@@ -40,8 +39,7 @@ function carga_datos(){
     else{
 
         let contenedor = document.getElementById("container");
-        contenedor.innerHTML = `<p> <strong> Debe ingresar los valores en los Campos </strong> </p>`;
-        
+        contenedor.innerHTML = `<p> <strong> Debe ingresar los valores en los Campos </strong> </p>`; 
         contenedor.append(contenedor);   
         
     }
@@ -51,16 +49,11 @@ function carga_datos(){
                              <p> El Monto solicitado es de <strong> ${monto} </strong> </p>
                              <p> El Plazo es de cuotas <strong> ${plazo} </strong> </p>
                              <p> El Interes de la cuota solicitada es <strong> ${interes.toFixed(2)} </strong> </p>
-                             <p> El (CFT) a pagar mensualmente es <strong> ${cuota_total.toFixed(2)} </strong> </p>`;
-                             
-                             
+                             <p> El (CFT) a pagar mensualmente es <strong> ${cuota_total.toFixed(2)} </strong> </p>`;                          
      contenedor.append(contenedor_uno)
-
-
 }
 
 let Consulta_info = [];
-
 
 let Consultadorr = document.getElementById("Consultador");
 Consultadorr.addEventListener("click", function(){
@@ -75,17 +68,14 @@ Consultadorr.addEventListener("click", function(){
         contenedor_dos.innerHTML = `<p> Banco ${info.Entidad} </p>
                                     <p> Monto ${info.Cantidad} </p>
                                     <p> Cuotas ${info.Cuotas} </p>`;
-                                    contenedor_dos.style.border = " 1px solid gold";
-                                    
-    }
-   
+                                    contenedor_dos.style.border = " 1px solid gold";                                                      
+    }  
 })
 
 let btn = document.getElementById("boton");
 btn.addEventListener("click", carga_datos);
 
 let borrar = document.getElementById("borrar");
-
 borrar.addEventListener("click", function (){
 
     document.getElementById("banco").value = "";
@@ -107,8 +97,8 @@ finalizado.addEventListener("click", function(){
 
     container.style.display = "block";
     container__simulador.style.display = "none";
-    contenedor_dos.style.display = "none";
-    Consultador.style.display = "block";
+    //contenedor_dos.style.display = "none";
+    Consultador.hidden = false;
 })
 
 
