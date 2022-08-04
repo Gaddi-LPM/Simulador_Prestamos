@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Simulador de Prestamo</title>
     <link rel="stylesheet" href="Estilos.css">
 </head>
 <body>
     <header>
-
         <div class="header__img">
             <img src="imagen/simulador.png" alt="">
             <div id="confir__exitosa" class="texto_operacion"> </div>
         </div>
-
     </header>
 
     <section>
-
         <div class="Container__Simulador" id="container__simulador">
 
             <!-- <form action=""> -->
@@ -37,26 +36,42 @@
     
                     <button id="boton" class="boton"> VALIDAR</button>
                     <button id="borrar" class="boton"> RESET</button>
-                    <button class="boton__confirmar"  id="confirmar">CONFIRMAR</button>
              
                      <!-- <input id="Validar" class=""type="submit" value="Validar"> -->
-                     <!-- <input type="reset" value="Limpiar"> -->
-             
-    
+                     <!-- <input type="reset" value="Limpiar"> -->  
                 </fieldset>
             <!-- </form> -->
-    
         </div>
     
-        <div class="container_info" id="container">  </div>
+        <div class="container_info" id="container"> </div>
+        
+        <div> <button id="confirmar" class="boton__confirmar" hidden>CONFIRMAR</button> </div>
 
+    
         <div id="container_dos" class="container_dos"> </div>
 
         <button id="Consultador" class="Consultador" hidden> Ultima Consulta </button>
  
-
-
     </section>
+
+    <div id="form_alta" class="form_dos">
+        <p>------------Para solicitar el prestamo debe ingresar sus datos----------</p>
+        <h4> Formulario Alta Usuario</h4>
+    
+        <label for=""> Nombre y Apellido </label>
+        <input type="text">
+        <label for=""> Ingrese DNI </label>
+        <input type="text">
+        <button> <a href="simulador.html">VOLVER</a> </button>
+        <button id="btn_solicitar"> SOLICITAR </button>
+              
+    </div>
+
+
+
+
+
+
 
     <script src="simulador.js"></script>
 </body>
