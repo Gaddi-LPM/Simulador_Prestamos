@@ -6,7 +6,7 @@
 }
 
 body {
-    background: -moz-radial-gradient(gold, blue); 
+    background:linear-gradient(95deg, blue, gold);   
 }
 
 header {
