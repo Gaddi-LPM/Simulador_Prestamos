@@ -41,16 +41,10 @@ function carga_datos(){
 let Consulta_info = [];
 
 Consultadorr.addEventListener("click", () => {
-    let contenedor_dos = document.getElementById("container_dos");
     let consul = localStorage.getItem("Consultados");
     let consultados = JSON.parse(consul);
     for( let info of consultados){
-
-        console.log(info);
-        contenedor_dos.innerHTML = `<p> Banco ${info.Entidad} </p>
-                                    <p> Monto ${info.Cantidad} </p>
-                                    <p> Cuotas ${info.Cuotas} </p>`;
-                                    contenedor_dos.style.border = " 1px solid gold";                                                      
+        console.log(info);                                              
     }  
 })
 
@@ -77,6 +71,15 @@ finalizado.addEventListener("click", () => {
 })
 
 btn_solicitar.addEventListener("click", () => {
+    let btn_nombre = document.getElementById("btn_nombre").value;
+    let btn_dni = document.getElementById("btn_dni").value;
+    let contenedor_dos = document.getElementById("container_dos");
+    btn_nombre != "" && btn_dni != "" ? dar_alta () : contenedor_dos.innerHTML = `<p> Ingrese Nombre y Apellido </p>
+                                                                                  <p> Ingrese Nro de Dni`;
+
+})
+
+let dar_alta = () =>{
     Swal.fire({
         title: 'Gracias!',
         text: 'Su consulta ha sido Exitosa.',
@@ -86,142 +89,13 @@ btn_solicitar.addEventListener("click", () => {
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-function cotizador ( monto , plazo){
-
-    
-    valor_cuotas = monto / plazo;
-    let interes;
-
-    if(plazo == 12){
-
-        interes = monto * 0.30 / plazo;
-    }
-    else if(plazo == 24){
-
-        interes = monto * 0.40 / plazo;
-    }
-    else if(plazo == 48){
-
-        interes = monto * 0.50 / plazo;
-    }
-    else if(plazo == 72){
-
-        interes = monto * 0.55 / plazo;
-    }
-    else{
-        console.log("Plazo no Valido");
-    }
-    
-
-     let validacion = prompt("Desea realizar la Operacion? SI/NO");
-
-     let porcentaje = ["12 x 30" , "24 x 40" , "48 x 50" , "72 x 55"];
-
-     for(calculo of porcentaje){
-
-        console.log("Plazo con porcentaje de Interes ", calculo, "%");
-     }
-
-     if(validacion == "SI" || validacion == "si"){
-        let nombre_apellido = prompt("Ingrese su Nombre y Apellido");
-        let DNI = prompt("Ingrese su numedo de documento");
-        alert("Su Operacion se ha Realizo con Exito");
-
-        let informacion = [nombre_apellido , DNI , monto , plazo , valor_cuotas , interes];
-
-         console.log("--bienvenido a Nuestro Simulador--");
-         console.log("Estimado/a Sr/a:", informacion[0]);
-         console.log("Su numero", informacion[1], "No posee saldo Deudor");
-         console.log("El Monto Solicitada es de", informacion[2]);
-         console.log("La Cantidad de Cuotas a pagar son", informacion[3]);
-         console.log("Su cuota pura es", informacion[4]);
-         console.log("El interes es de", informacion[5]);
-         console.log("Total con interes (CFT) es", informacion[4] + informacion[5]);
-
-          // Estas son otras opciones de las cuales el usuario tambien puede elegir! 
-         
-          let datos_varios = [
-
-           {monto: monto , plazo: 12 , interes: 0.30 + interes},
-           {monto: monto , plazo: 24 , interes: 0.40 + interes},
-           {monto: monto , plazo: 48 , interes: 0.50 + interes},
-           {monto: monto , plazo: 72 , interes: 0.55 + interes}
-         ]
-    
-          function sumar_interes ( valor ){
-    
-              let interes = valor.monto * valor.interes / valor.plazo;
-              let calculo_total = valor.monto / valor.plazo + valor.interes;
-              let informe_plazo = [valor.plazo +"  " + "cuotas de" +" "+  calculo_total];
-        
-              return informe_plazo
-         }
-    
-          let resultado_interes = datos_varios.map(sumar_interes)
-    
-             console.log("<----------------Elija el Plazo que mas se adapte a su monto solicitado----------------->")
-
-             for( let info of resultado_interes)
-
-             console.log("tambien puede optar por las siguientes opciones:", info.join(" "));
-
-     }
-
-     else{
-        alert("Muchas Gracias");
-    }
-   
 }
 
-//cotizador (monto = document.getElementById("monto"), plazo = document.getElementById("plazo"));
 
-*/
+
+
+
+
 
 
 
