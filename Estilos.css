@@ -6,12 +6,13 @@
 }
 
 body {
-    background:linear-gradient(95deg, gold, blue);   
+    background:linear-gradient(95deg, gold, blue); 
 }
 
 header {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .header__img img {
@@ -91,11 +92,12 @@ header {
 .container_dos {
     width: 50vw;
     margin: auto;
+    margin-top: 5px;
     flex-direction: column;
     font-size: 22px;
     text-align: center;
     color: white;
-    border: 1px solid gold;
+    background-color: blue;
     border-radius: 5px;
     font-weight: 600;
 }
@@ -134,4 +136,19 @@ header {
 .form_dos button a {
     text-decoration: none;
     color: white;
+}
+.dato_clima {
+    position: absolute;
+    margin-left: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: outset;
+    border-radius: 5px;
+    background:linear-gradient(50deg, gold, blue);
+    color: bisque; 
 }
