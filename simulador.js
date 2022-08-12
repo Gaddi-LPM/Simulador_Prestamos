@@ -99,7 +99,6 @@ let dar_alta = () =>{
       })
 
       setTimeout( ()=> window.location.href = "simulador.html"  ,4000);
-    
 }
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&units=metric&appid=e1e3c5b80aea982acc9e895d320a90b6")
@@ -111,7 +110,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&un
     
         dato_clima.innerHTML = `<p> Temp ${data.main.temp} °C </p>
                                 <p> Viento ${data.wind.speed} m/S </p> 
-                                <p> Rafagas ${data.wind.gust} </p>
+                                <p> Humedad ${data.main.humidity} % </p>
                                 <p>  ${data.weather[0].description} </p>
                                 <img src = ${url_icon}>
                                 <p> <strong>${data.name} </strong> </p>`;
