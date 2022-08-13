@@ -8,6 +8,8 @@ let finalizado = document.getElementById("confirmar");
 let Consultadorr = document.getElementById("Consultador");
 let btn_solicitar = document.getElementById("btn_solicitar");
 let = dato_clima = document.getElementById("dato_clima");
+let btn_nombre = document.getElementById("btn_nombre");
+let btn_dni = document.getElementById("btn_dni")
 
 btn.addEventListener("click", () => {
 
@@ -76,15 +78,28 @@ btn_solicitar.addEventListener("click", () => {
     let btn_nombre = document.getElementById("btn_nombre").value;
     let btn_dni = document.getElementById("btn_dni").value;
     let contenedor_dos = document.getElementById("container_dos");
-    btn_nombre != "" && btn_dni != "" ? dar_alta () : contenedor_dos.innerHTML = `<p> Ingrese Datos Solicitados </p>`;
-
+    btn_nombre != "" && btn_dni != "" ? dar_alta() : contenedor_dos.innerHTML = `<p> Ingrese Datos Solicitados </p>`;
 })
 
-let btn_nombre = document.getElementById("btn_nombre");
-btn_nombre.addEventListener("focus", (e) => {
+btn_nombre.addEventListener("focus", () => {
+    contenedor_dos = document.getElementById("container_dos");
+    contenedor_dos.style.display = "none";
+}); 
 
-    e.target != "" ? contenedor_dos.style.display = "none" : contenedor_dos.style.display = "block";
-});
+btn_nombre.addEventListener("blur", () => {
+    contenedor_dos = document.getElementById("container_dos");
+    contenedor_dos.style.display = "block";
+ })
+
+ btn_dni.addEventListener("focus", () => {
+    contenedor_dos = document.getElementById("container_dos");
+    contenedor_dos.style.display = "none";
+}); 
+
+btn_dni.addEventListener("blur", () => {
+    contenedor_dos = document.getElementById("container_dos");
+    contenedor_dos.style.display = "block";
+ })
 
 let dar_alta = () =>{
     Swal.fire({
@@ -99,6 +114,7 @@ let dar_alta = () =>{
       })
 
       setTimeout( ()=> window.location.href = "simulador.html"  ,4000);
+     
 }
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&units=metric&appid=e1e3c5b80aea982acc9e895d320a90b6")
@@ -118,9 +134,45 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&un
                                 
     })
 
+/*
+    let foto = [];
 
+    function poner_foto(fotin){
 
+        setTimeout(function(){
 
+            foto.push("foto-de-Matias");
+            fotin();
+        },4000)
+    }
+
+    poner_foto(() => console.log(foto));  
+
+    let carrito = [];
+
+    let Regresar = new Promise((resolve, reject) => {
+
+        let tiempo = Math.random();
+
+        tiempo > 0.5 ? resolve(console.log("genial", tiempo)) : reject(console.log("mal ahi", tiempo));
+        
+    })
+    
+    Regresar.then(() => console.log("vamos mierda"))  .catch(() => console.log("la concha de la lora"));
+    
+  */  
+                    
+//  let mi_variable = prompt("ingrese un numero");
+ 
+//  if (mi_variable ==12){
+
+//     alert("guachin");
+//  }
+   
+//  else{
+//     console.log("no es doce", mi_variable);
+//  }
+  
 
 
 

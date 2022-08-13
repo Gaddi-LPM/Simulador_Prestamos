@@ -55,6 +55,10 @@ saludar_a_todos( lista_usuarios , saludar);
 
 // FOR EACH
 
+
+
+/*
+
 let numero = [1,2,3,4,5,6,7,8,9];
 
 numero.forEach(function(num){
@@ -83,7 +87,7 @@ console.log("el nombre encontrado es", resultado_find);
 */
 
 // FILTER retorna mas de un valor como array
-
+/*
 let usuarios = [
 
     {nombre:"pepe", apellido:"lopez", edad: 12},
@@ -231,4 +235,15 @@ console.log(Ambos);
 //let botonn = document.getElementsByClassName();
 
 //let botonnn = document.getElementsByTagName();
+*/
+
+
+function sumar (puto , loco ,lola){
+
+    let suma = puto + loco - lola;
+    console.log("la suma es", suma);
+}
+
+sumar(12 , 23 , 3);
+
 
