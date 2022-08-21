@@ -17,18 +17,38 @@ btn.addEventListener("click", () => {
     let monto = document.getElementById("monto").value;
     let plazo = document.getElementById("plazo").value;
 
+    if(banco == null || banco == "" || banco.lenght == 0){
+        CampoInvalido()
+        document.getElementById("banco").style.boxShadow = "0 0 5px red";
+    }
+
+    else if(monto == null || monto < 10000 || monto == 0 || isNaN(monto)){
+        CampoInvalido()
+        document.getElementById("monto").style.boxShadow = "0 0 5px red";
+    }
+
+    else if(plazo == null || plazo == 0 || isNaN(plazo)){
+        CampoInvalido()
+        document.getElementById("plazo").style.boxShadow = "0 0 5px red";
+    }
+    else{
+        CampoValido()
+        document.getElementById("banco").style.boxShadow = "0 0 5px blue"
+        document.getElementById("monto").style.boxShadow = "0 0 5px blue"
+        document.getElementById("plazo").style.boxShadow = "0 0 5px blue"
+    }
+    
     let information = {"Entidad": banco , "Cantidad": monto , "Cuotas": plazo };
     Consulta_info.push(information);
     let information_JSON = JSON.stringify(Consulta_info);
     localStorage.setItem("Consultados", information_JSON);
 
     let resul = monto / plazo;
-    let interes;
-
-    plazo == 12 ? interes = monto * 0.30 / plazo : contenedor.innerHTML = `<p> <strong> Debe Ingresar los Valores Designados </strong> </p>`; 
-    plazo == 24 ? interes = monto * 0.40 / plazo : contenedor.innerHTML = `<p> <strong> Debe Ingresar los Valores Designados </strong> </p>`; 
-    plazo == 48 ? interes = monto * 0.50 / plazo : contenedor.innerHTML = `<p> <strong> Debe Ingresar los Valores Designados </strong> </p>`; 
-    plazo == 72 ? interes = monto * 0.55 / plazo : contenedor.innerHTML = `<p> <strong> Debe Ingresar los Valores Designados </strong> </p>`; 
+    let interes ;
+    plazo == 24 ? interes = monto * 0.40 / plazo : contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`; 
+    plazo == 12 ? interes = monto * 0.30 / plazo : contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`; 
+    plazo == 48 ? interes = monto * 0.50 / plazo : contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`; 
+    plazo == 72 ? interes = monto * 0.55 / plazo : contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`; 
 
     let cuota_total = resul + interes;
     contenedor.hidden = false;
@@ -82,23 +102,19 @@ btn_solicitar.addEventListener("click", () => {
 })
 
 btn_nombre.addEventListener("focus", () => {
-    contenedor_dos = document.getElementById("container_dos");
+     contenedor_dos.style.display = "none";
+}); 
+
+btn_nombre.addEventListener("blur", (e) => {
+    e.target.value == "" ? contenedor_dos.style.display = "block": e.target.value;
+})
+
+btn_dni.addEventListener("focus", () => {
     contenedor_dos.style.display = "none";
 }); 
 
-btn_nombre.addEventListener("blur", () => {
-    contenedor_dos = document.getElementById("container_dos");
-    contenedor_dos.style.display = "block";
- })
-
- btn_dni.addEventListener("focus", () => {
-    contenedor_dos = document.getElementById("container_dos");
-    contenedor_dos.style.display = "none";
-}); 
-
-btn_dni.addEventListener("blur", () => {
-    contenedor_dos = document.getElementById("container_dos");
-    contenedor_dos.style.display = "block";
+btn_dni.addEventListener("blur", (e) => {
+    e.target.value == "" ? contenedor_dos.style.display = "block": e.target.value;
  })
 
 let dar_alta = () =>{
@@ -112,9 +128,7 @@ let dar_alta = () =>{
         imageAlt: 'Custom image',
         button: 'simulador.html'
       })
-
-      setTimeout( ()=> window.location.href = "simulador.html"  ,4000);
-     
+      setTimeout( ()=> window.location.href = "simulador.html"  ,4000);  
 }
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&units=metric&appid=e1e3c5b80aea982acc9e895d320a90b6")
@@ -132,46 +146,36 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&un
                                 <p> <strong>${data.name} </strong> </p>`;
                                 console.log(data);
                                 
-    })
+    }).catch(() => console.log("Error"));
 
-/*
-    let foto = [];
-
-    function poner_foto(fotin){
-
-        setTimeout(function(){
-
-            foto.push("foto-de-Matias");
-            fotin();
-        },4000)
+    function CampoInvalido (){
+        Toastify({
+            text: "Ingrese Datos Correctos",
+            duration: 3000,
+            style:{ background: "red" },
+            }).showToast();    
     }
 
-    poner_foto(() => console.log(foto));  
+    function CampoValido (){
+        Toastify({
+            text: "Muy Bien!!!",
+            duration: 3000,
+            style:{ background: "blue" },
+            }).showToast();    
+    }
 
-    let carrito = [];
 
-    let Regresar = new Promise((resolve, reject) => {
 
-        let tiempo = Math.random();
 
-        tiempo > 0.5 ? resolve(console.log("genial", tiempo)) : reject(console.log("mal ahi", tiempo));
+    
+
         
-    })
-    
-    Regresar.then(() => console.log("vamos mierda"))  .catch(() => console.log("la concha de la lora"));
-    
-  */  
-                    
-//  let mi_variable = prompt("ingrese un numero");
- 
-//  if (mi_variable ==12){
 
-//     alert("guachin");
-//  }
-   
-//  else{
-//     console.log("no es doce", mi_variable);
-//  }
+
+
+
+
+
   
 
 

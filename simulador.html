@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Simulador de Prestamo</title>
     <link rel="stylesheet" href="Estilos.css">
 </head>
@@ -27,14 +28,14 @@
                             
                     <legend class="">Formulario de Solicitud </legend>
     
-                    <label class="" for="Entidad">Entidad Bancaria</label>
+                    <label class="" for="banco">Entidad Bancaria</label>
                     <input id ="banco" class="input" type="text" name="Nombre" placeholder="Entidad Perteneciente">
                     
-                    <label  class=""for="Monto">Ingrese Monto</label>
-                    <input id ="monto" class=" input" type="number" name="Monto" placeholder="Minimo $ 10.000">
+                    <label  class=""for="monto">Ingrese Monto</label>
+                    <input id ="monto" class=" input" type="number" name="monto" placeholder="Minimo $ 10.000">
                     
-                    <label  class=""for="Plazo">Plazo</label>
-                    <input id ="plazo" class="input" type="number" name="Plazo" placeholder="12 - 24 - 48 - 72">
+                    <label  class=""for="plazo">Plazo</label>
+                    <input id ="plazo" class="input" type="number" name="plazo" placeholder="12 - 24 - 48 - 72">
     
                     <button id="boton" class="boton"> VALIDAR</button>
                     <button id="borrar" class="boton"> RESET</button>
@@ -51,7 +52,7 @@
     </section>
 
     <div id="form_alta" class="form_dos">
-        <p>------------Para solicitar el prestamo debe ingresar sus datos----------</p>
+        <p>-----------Para solicitar el prestamo debe ingresar sus Datos----------</p>
         <h4> Formulario Alta Usuario</h4>
         <label for=""> Nombre y Apellido </label>
         <input type="text" id="btn_nombre">
@@ -60,7 +61,8 @@
         <button> <a href="simulador.html" class="btn_form">VOLVER</a> </button>
         <button id="btn_solicitar" class="btn_form"> SOLICITAR </button>     
     </div>
-
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="simulador.js"></script>
 </body>
 </html>
