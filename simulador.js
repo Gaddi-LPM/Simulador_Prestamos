@@ -1,4 +1,6 @@
 
+let monto = document.getElementById("monto");
+let plazo = document.getElementById("plazo");
 let contenedor = document.getElementById("container");
 let contenedor_dos = document.getElementById("container_dos");
 let btn_confirmar = document.getElementById("confirmar");
@@ -10,6 +12,40 @@ let btn_solicitar = document.getElementById("btn_solicitar");
 let = dato_clima = document.getElementById("dato_clima");
 let btn_nombre = document.getElementById("btn_nombre");
 let btn_dni = document.getElementById("btn_dni")
+let form = document.getElementById("form");
+
+form.addEventListener("click", (e)=> e.preventDefault() );
+
+banco.addEventListener("keypress", (e) => {
+    let key = e.key;
+    let letras = "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM";
+    if(!letras.includes(key)) { e.preventDefault()}
+})
+
+monto.addEventListener("keypress", (e) =>{
+    let keys = e.key;
+    let valor = "1234567890";
+    if(!valor.includes(keys)){ e.preventDefault()}
+})
+   
+plazo.addEventListener("keypress", (e) =>{
+    e.preventDefault()
+    let keys = e.key;
+    let valor = parseInt(keys);
+    if(valor){ plazo.value += valor }
+})
+
+btn_nombre.addEventListener("keypress", (e) => {
+    let key = e.key;
+    let letras = "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM";
+    if(!letras.includes(key)) { e.preventDefault()}
+})
+
+btn_dni.addEventListener("keypress", (e) =>{
+    let keys = e.key;
+    let valor = "1234567890";
+    if(!valor.includes(keys)){ e.preventDefault()}
+})
 
 btn.addEventListener("click", () => {
 
@@ -20,11 +56,13 @@ btn.addEventListener("click", () => {
     if(banco == null || banco == "" || banco.lenght == 0){
         CampoInvalido()
         document.getElementById("banco").style.boxShadow = "0 0 5px red";
+        banco.contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`;
     }
 
     else if(monto == null || monto < 10000 || monto == 0 || isNaN(monto)){
         CampoInvalido()
         document.getElementById("monto").style.boxShadow = "0 0 5px red";
+        monto.contenedor.innerHTML = `<p> <strong>  Segun Campo </strong> </p>`;
     }
 
     else if(plazo == null || plazo == 0 || isNaN(plazo)){
@@ -128,7 +166,7 @@ let dar_alta = () =>{
         imageAlt: 'Custom image',
         button: 'simulador.html'
       })
-      setTimeout( ()=> window.location.href = "simulador.html"  ,4000);  
+      setTimeout( ()=> window.location.href = "index.html"  ,4000);  
 }
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&units=metric&appid=e1e3c5b80aea982acc9e895d320a90b6")
@@ -143,9 +181,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&un
                                 <p> Humedad ${data.main.humidity} % </p>
                                 <p>  ${data.weather[0].description} </p>
                                 <img src = ${url_icon}>
-                                <p> <strong>${data.name} </strong> </p>`;
-                                console.log(data);
-                                
+                                <p> <strong>${data.name} </strong> </p>`;                   
     }).catch(() => console.log("Error"));
 
     function CampoInvalido (){
@@ -164,13 +200,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Buenos Aires&lang=sp&un
             }).showToast();    
     }
 
-
-
-
     
-
-        
-
 
 
 
